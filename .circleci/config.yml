@@ -46,7 +46,7 @@ jobs:
       - checkout
       - restore_cache:
           key: dependencies-{{ checksum "package.json" }}-{{ .Environment.CACHE_VERSION }}
-      - run: yarn doc:build
+      - run: yarn build
       - run:
           name: Copy deployment artifacts to workspace
           command: |
