@@ -84,10 +84,10 @@ workflows:
             - build
           filters:
             branches:
-              only: master
+              only: main
       - deploy-netlify:
           requires:
             - server-doc-build
           filters:
             branches:
-              only: master
+              only: main
