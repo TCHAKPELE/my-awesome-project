@@ -41,7 +41,7 @@ jobs:
   deploy-netlify:
     docker:
       - image: circleci/node:10-browsers
-    working_directory: ~/deploy-dist-server
+    working_directory: ~/repo
     steps:
       - attach_workspace:
           at: /tmp
@@ -59,6 +59,8 @@ workflows:
           requires:
             - build
       - deploy-netlify:
+          requires:
+            - install
           filters:
             branches:
               only: main
