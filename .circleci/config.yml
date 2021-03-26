@@ -50,7 +50,7 @@ jobs:
       - run:
           name: Copy deployment artifacts to workspace
           command: |
-            cp dist-server/ /tmp/server-dist -r
+            cp server-dist/ /tmp/server-dist -r
       - store_artifacts:
           path: /tmp/server-dist
       - persist_to_workspace:
