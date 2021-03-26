@@ -59,8 +59,6 @@ workflows:
           requires:
             - build
       - deploy-netlify:
-          requires:
-            - server-doc-build
           filters:
             branches:
               only: main
