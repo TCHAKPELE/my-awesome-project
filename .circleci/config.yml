@@ -38,7 +38,6 @@ jobs:
             - node_modules
           key: dependencies-{{ checksum "package.json" }}-{{ .Environment.CACHE_VERSION }}
 
-  
   server-doc-build:
     docker:
       - image: circleci/node:10-browsers
@@ -79,7 +78,6 @@ workflows:
       - install:
           requires:
             - build
-     
       - server-doc-build:
           requires:
             - install
