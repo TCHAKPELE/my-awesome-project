@@ -38,14 +38,14 @@ jobs:
   deploy-netlify:
     docker:
       - image: circleci/node:dubnium-browsers
-    working_directory: ~/deploy-doc-server
+    working_directory: ~/repo
     steps:
       - attach_workspace:
-          at: /tmp
+          at: ./
       - run:
           name: Deploy app
           command: |
-            npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir /tmp/server-doc --prod
+            npx netlify-cli deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --dir ./public -p
 
 workflows:
   version: 2
