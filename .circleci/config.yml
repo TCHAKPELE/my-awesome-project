@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10-browsers
+      - image: circleci/node:dubnium-browsers
     working_directory: ~/repo
     steps:
       - checkout
@@ -12,13 +12,11 @@ jobs:
             # fallback to using the latest cache if no exact match is found
             - dependencies-
       - run: yarn global add node-gyp && yarn install
-      - run:
-                    name: Install local dependencies
-                    command: npm install
       - save_cache:
           paths:
             - node_modules
           key: dependencies-{{ checksum "package.json" }}-{{ .Environment.CACHE_VERSION }}
+          
   lint:
     docker:
       - image: circleci/node:dubnium-browsers
